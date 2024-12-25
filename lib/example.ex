@@ -10,15 +10,10 @@ defmodule Example do
   end
 
   def main do
-    name = "Caleb"
-    status = Enum.random([:gold, :silver, :bronze, :"not a member"])
-
-    case status do
-      :gold -> IO.puts "Hello #{name}, you are a gold member"
-      :silver -> IO.puts "Hello #{name}, you are a silver member"
-      :bronze -> IO.puts "Hello #{name}, you are a bronze member"
-      :"not a member" -> IO.puts "Hello #{name}, you are not a member"
-    end
+    time = DateTime.new!(Date.new!(2025, 1, 1), Time.new!(0, 0, 0, 0))
+    time_till = DateTime.diff(time, DateTime.utc_now())
+    # IO.puts("Time till 2025: #{time_till}")
+    days = div(time_till, 24 * 60 * 60)
+    IO.puts("Days till 2025: #{days}")
   end
-
 end
